@@ -14102,6 +14102,1902 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>一些read_csv/read_table函数参数</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th>参数</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>表明文件系统位置的字符串、URL或文件型参数</td>
+</tr>
+<tr>
+<td>sep或delimiter</td>
+<td>用于分隔每行字段的字符序列或正则表达式</td>
+</tr>
+<tr>
+<td>header</td>
+<td>用作列名的行号,默认是0（第一行),如果没有列名的话，应该为None</td>
+</tr>
+<tr>
+<td>index_col</td>
+<td>用作结果中行索引的列名或列号，可以是一个单一的名称/数字，也可以是一个分层索引</td>
+</tr>
+<tr>
+<td>name</td>
+<td>结构的列名列表，和header = None 一起用</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.1.1-&#20998;&#22359;&#35835;&#20837;&#25991;&#26412;&#25991;&#20214;">6.1.1 &#20998;&#22359;&#35835;&#20837;&#25991;&#26412;&#25991;&#20214;<a class="anchor-link" href="#6.1.1-&#20998;&#22359;&#35835;&#20837;&#25991;&#26412;&#25991;&#20214;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>当处理大文件或找出正确的文件，可以读入文件的一个小片段或小块遍历文件</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rand.csv&#39;</span><span class="p">)</span>
+<span class="n">result</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.475508</td>
+      <td>0.052160</td>
+      <td>0.810661</td>
+      <td>0.826939</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.503589</td>
+      <td>0.157911</td>
+      <td>0.019708</td>
+      <td>0.287918</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.439287</td>
+      <td>0.500239</td>
+      <td>0.243612</td>
+      <td>0.029329</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0.338462</td>
+      <td>0.393308</td>
+      <td>0.668759</td>
+      <td>0.161903</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0.609197</td>
+      <td>0.670109</td>
+      <td>0.387935</td>
+      <td>0.341977</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>0.858178</td>
+      <td>0.850268</td>
+      <td>0.106671</td>
+      <td>0.822619</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>6</td>
+      <td>0.665273</td>
+      <td>0.150437</td>
+      <td>0.619818</td>
+      <td>0.123536</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>7</td>
+      <td>0.855947</td>
+      <td>0.354642</td>
+      <td>0.529742</td>
+      <td>0.669798</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>8</td>
+      <td>0.509611</td>
+      <td>0.877235</td>
+      <td>0.894568</td>
+      <td>0.953100</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>9</td>
+      <td>0.334630</td>
+      <td>0.303441</td>
+      <td>0.701387</td>
+      <td>0.458104</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>10</td>
+      <td>0.689865</td>
+      <td>0.705342</td>
+      <td>0.213710</td>
+      <td>0.629356</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>11</td>
+      <td>0.282001</td>
+      <td>0.004865</td>
+      <td>0.002799</td>
+      <td>0.359927</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>12</td>
+      <td>0.366075</td>
+      <td>0.211592</td>
+      <td>0.431236</td>
+      <td>0.572111</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>13</td>
+      <td>0.354307</td>
+      <td>0.956193</td>
+      <td>0.511439</td>
+      <td>0.560898</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>14</td>
+      <td>0.451978</td>
+      <td>0.637169</td>
+      <td>0.176107</td>
+      <td>0.913359</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>15</td>
+      <td>0.729670</td>
+      <td>0.742300</td>
+      <td>0.706975</td>
+      <td>0.683517</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>16</td>
+      <td>0.855602</td>
+      <td>0.474973</td>
+      <td>0.357299</td>
+      <td>0.056975</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>17</td>
+      <td>0.803977</td>
+      <td>0.610609</td>
+      <td>0.000905</td>
+      <td>0.592828</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>18</td>
+      <td>0.676607</td>
+      <td>0.221710</td>
+      <td>0.448044</td>
+      <td>0.699377</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>19</td>
+      <td>0.109573</td>
+      <td>0.621800</td>
+      <td>0.537596</td>
+      <td>0.082790</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>20</td>
+      <td>0.327952</td>
+      <td>0.343626</td>
+      <td>0.007923</td>
+      <td>0.538131</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>21</td>
+      <td>0.902236</td>
+      <td>0.293823</td>
+      <td>0.562578</td>
+      <td>0.868210</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>22</td>
+      <td>0.691554</td>
+      <td>0.235016</td>
+      <td>0.450268</td>
+      <td>0.483247</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>23</td>
+      <td>0.955721</td>
+      <td>0.523018</td>
+      <td>0.186277</td>
+      <td>0.200080</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>24</td>
+      <td>0.788950</td>
+      <td>0.667543</td>
+      <td>0.839880</td>
+      <td>0.748229</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>25</td>
+      <td>0.049776</td>
+      <td>0.947662</td>
+      <td>0.032344</td>
+      <td>0.950452</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>26</td>
+      <td>0.297152</td>
+      <td>0.816039</td>
+      <td>0.161491</td>
+      <td>0.030503</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>27</td>
+      <td>0.005711</td>
+      <td>0.444702</td>
+      <td>0.393855</td>
+      <td>0.253842</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>28</td>
+      <td>0.347049</td>
+      <td>0.902151</td>
+      <td>0.217358</td>
+      <td>0.593278</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>29</td>
+      <td>0.761296</td>
+      <td>0.179966</td>
+      <td>0.139170</td>
+      <td>0.114263</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>69</th>
+      <td>69</td>
+      <td>0.192651</td>
+      <td>0.189514</td>
+      <td>0.802776</td>
+      <td>0.034203</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>70</td>
+      <td>0.691390</td>
+      <td>0.054719</td>
+      <td>0.315113</td>
+      <td>0.757273</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>71</td>
+      <td>0.051250</td>
+      <td>0.039095</td>
+      <td>0.775839</td>
+      <td>0.598223</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>72</td>
+      <td>0.983812</td>
+      <td>0.448770</td>
+      <td>0.798008</td>
+      <td>0.842693</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>73</td>
+      <td>0.786903</td>
+      <td>0.454157</td>
+      <td>0.460074</td>
+      <td>0.770428</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>74</td>
+      <td>0.518721</td>
+      <td>0.014904</td>
+      <td>0.902474</td>
+      <td>0.748765</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>75</td>
+      <td>0.910638</td>
+      <td>0.377483</td>
+      <td>0.769144</td>
+      <td>0.687442</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>76</td>
+      <td>0.858887</td>
+      <td>0.858948</td>
+      <td>0.331789</td>
+      <td>0.716937</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>77</td>
+      <td>0.539580</td>
+      <td>0.865809</td>
+      <td>0.777002</td>
+      <td>0.802717</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>78</td>
+      <td>0.905760</td>
+      <td>0.578872</td>
+      <td>0.431283</td>
+      <td>0.695306</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>79</td>
+      <td>0.063103</td>
+      <td>0.207991</td>
+      <td>0.727132</td>
+      <td>0.630158</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>80</td>
+      <td>0.779758</td>
+      <td>0.062166</td>
+      <td>0.985183</td>
+      <td>0.497717</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>81</td>
+      <td>0.179128</td>
+      <td>0.947147</td>
+      <td>0.510970</td>
+      <td>0.055309</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>82</td>
+      <td>0.104175</td>
+      <td>0.002721</td>
+      <td>0.815780</td>
+      <td>0.095079</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>83</td>
+      <td>0.523238</td>
+      <td>0.404861</td>
+      <td>0.135687</td>
+      <td>0.350605</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>84</td>
+      <td>0.744735</td>
+      <td>0.871438</td>
+      <td>0.292620</td>
+      <td>0.134738</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>85</td>
+      <td>0.576929</td>
+      <td>0.133764</td>
+      <td>0.355357</td>
+      <td>0.072526</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>86</td>
+      <td>0.379721</td>
+      <td>0.028930</td>
+      <td>0.997648</td>
+      <td>0.489277</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>87</td>
+      <td>0.466486</td>
+      <td>0.805788</td>
+      <td>0.056320</td>
+      <td>0.475193</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>88</td>
+      <td>0.369812</td>
+      <td>0.919982</td>
+      <td>0.633030</td>
+      <td>0.095915</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>89</td>
+      <td>0.841876</td>
+      <td>0.917977</td>
+      <td>0.202231</td>
+      <td>0.133453</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>90</td>
+      <td>0.828851</td>
+      <td>0.129812</td>
+      <td>0.458048</td>
+      <td>0.939226</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>91</td>
+      <td>0.011641</td>
+      <td>0.764530</td>
+      <td>0.096344</td>
+      <td>0.248558</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>92</td>
+      <td>0.261911</td>
+      <td>0.322473</td>
+      <td>0.269122</td>
+      <td>0.508778</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>93</td>
+      <td>0.018654</td>
+      <td>0.447017</td>
+      <td>0.314166</td>
+      <td>0.032835</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>94</td>
+      <td>0.202006</td>
+      <td>0.060580</td>
+      <td>0.962276</td>
+      <td>0.338443</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>95</td>
+      <td>0.024978</td>
+      <td>0.001490</td>
+      <td>0.020961</td>
+      <td>0.414501</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>96</td>
+      <td>0.284445</td>
+      <td>0.857826</td>
+      <td>0.186624</td>
+      <td>0.290889</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>97</td>
+      <td>0.690852</td>
+      <td>0.627074</td>
+      <td>0.345762</td>
+      <td>0.867174</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>98</td>
+      <td>0.703324</td>
+      <td>0.268481</td>
+      <td>0.150926</td>
+      <td>0.240017</td>
+    </tr>
+  </tbody>
+</table>
+<p>99 rows × 5 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>想读取一小部分文件，可以指明(nrows):</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rand.csv&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>one</th>
+      <th>two</th>
+      <th>three</th>
+      <th>four</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>0.475508</td>
+      <td>0.052160</td>
+      <td>0.810661</td>
+      <td>0.826939</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>0.503589</td>
+      <td>0.157911</td>
+      <td>0.019708</td>
+      <td>0.287918</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>0.439287</td>
+      <td>0.500239</td>
+      <td>0.243612</td>
+      <td>0.029329</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>0.338462</td>
+      <td>0.393308</td>
+      <td>0.668759</td>
+      <td>0.161903</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>0.609197</td>
+      <td>0.670109</td>
+      <td>0.387935</td>
+      <td>0.341977</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>为了分块读取文件，可以指定<code>chunksize</code>作为每一块的行数`:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">chunk</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rand.csv&#39;</span><span class="p">,</span><span class="n">chunksize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">chunk</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;pandas.io.parsers.TextFileReader at 0x1e6f3e3a6a0&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>read_csv</code>返回的<code>TextParser</code>对象允许根据chunksize遍历文件。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ？</span>
+<span class="n">chunker</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;rand.csv&#39;</span><span class="p">,</span><span class="n">chunksize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([])</span>
+<span class="k">for</span> <span class="n">piece</span> <span class="ow">in</span> <span class="n">chunker</span><span class="p">:</span>
+    <span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">piece</span><span class="p">[</span><span class="s1">&#39;four&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">(),</span> <span class="n">fill_value</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">tot</span> <span class="o">=</span> <span class="n">tot</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<span class="n">tot</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[29]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.953100    1.0
+0.187883    1.0
+0.202990    1.0
+0.215254    1.0
+0.220989    1.0
+0.227193    1.0
+0.230864    1.0
+0.240017    1.0
+0.248558    1.0
+0.253842    1.0
+0.287918    1.0
+0.290889    1.0
+0.314043    1.0
+0.338443    1.0
+0.341977    1.0
+0.350605    1.0
+0.359927    1.0
+0.369872    1.0
+0.371074    1.0
+0.374584    1.0
+0.381526    1.0
+0.383030    1.0
+0.414501    1.0
+0.200080    1.0
+0.184700    1.0
+0.458104    1.0
+0.181616    1.0
+0.029329    1.0
+0.030503    1.0
+0.032835    1.0
+           ... 
+0.881871    1.0
+0.909505    1.0
+0.913359    1.0
+0.939226    1.0
+0.716937    1.0
+0.695306    1.0
+0.475193    1.0
+0.687442    1.0
+0.483247    1.0
+0.484710    1.0
+0.489277    1.0
+0.497717    1.0
+0.508778    1.0
+0.524749    1.0
+0.538131    1.0
+0.540616    1.0
+0.560898    1.0
+0.572111    1.0
+0.592828    1.0
+0.593278    1.0
+0.598223    1.0
+0.629356    1.0
+0.630158    1.0
+0.647708    1.0
+0.669330    1.0
+0.669798    1.0
+0.675404    1.0
+0.679614    1.0
+0.683517    1.0
+0.017576    1.0
+Length: 99, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.1.2-&#23558;&#25968;&#25454;&#20889;&#20837;&#25991;&#26412;&#26684;&#24335;">6.1.2 &#23558;&#25968;&#25454;&#20889;&#20837;&#25991;&#26412;&#26684;&#24335;<a class="anchor-link" href="#6.1.2-&#23558;&#25968;&#25454;&#20889;&#20837;&#25991;&#26412;&#26684;&#24335;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;ex5.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>four</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;out.csv&#39;</span><span class="p">)</span><span class="c1"># 作为逗号分隔的文件</span>
+<span class="n">data</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[31]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>one</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>two</th>
+      <td>0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>three</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>four</th>
+      <td>1</td>
+      <td>1</td>
+      <td>2</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>选择其他分隔符的文件也是可以的</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ？</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;%&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>%A%B%C%D
+one%1%2%3%4.0
+two%0%1%2%
+three%1%2%3%
+four%1%1%2%
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>缺失值在输出时以空字符串出现，可以用其他标示值对缺失值进行标注：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">na_rep</span><span class="o">=</span><span class="s1">&#39;NULL&#39;</span><span class="p">)</span>
+
+<span class="err">将缺失值</span><span class="n">NA替换为NULL</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果没有其他选项被指定，行和列的标签都会被写入，二者标签也可以禁止写入</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1,2,3,4.0
+0,1,2,
+1,2,3,
+1,1,2,
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">stdout</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;C&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>A,B,C
+1,2,3
+0,1,2
+1,2,3
+1,1,2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.1.3-&#20351;&#29992;&#20998;&#38548;&#26684;&#24335;">6.1.3 &#20351;&#29992;&#20998;&#38548;&#26684;&#24335;<a class="anchor-link" href="#6.1.3-&#20351;&#29992;&#20998;&#38548;&#26684;&#24335;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>带有一行或多行错误的文件，<code>read_table</code>也无法解决，这时可以用Python内建的csv模块。<br>
+使用它，需要将任一打开的文件或文件型对象传给<code>csv.reader</code>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ex7.csv&#39;</span><span class="p">)</span>
+<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[&#39;a&#39;, &#39;b&#39;, &#39;c&#39;]
+[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]
+[&#39;1&#39;, &#39;2&#39;, &#39;3&#39;]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 如需根据不同的分隔符、字符串引用约定或行终止符定义一种新格式，</span>
+<span class="c1"># 可以使用 csv.Dialect 定义一个简单的子类：</span>
+<span class="k">class</span> <span class="nc">my_dialect</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">Dialect</span><span class="p">):</span>
+    <span class="n">lineterminator</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span>
+    <span class="n">quotechar</span> <span class="o">=</span> <span class="s1">&#39;&quot;&quot;&#39;</span>
+    <span class="n">quoting</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span>
+    
+<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dialect</span><span class="o">=</span><span class="n">my_dialect</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-52-93c742f49b44&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-fg">      7</span>     quoting <span class="ansi-yellow-intense-fg ansi-bold">=</span> csv<span class="ansi-yellow-intense-fg ansi-bold">.</span>QUOTE_MINIMAL
+<span class="ansi-green-fg">      8</span> 
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 9</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>reader <span class="ansi-yellow-intense-fg ansi-bold">=</span> csv<span class="ansi-yellow-intense-fg ansi-bold">.</span>reader<span class="ansi-yellow-intense-fg ansi-bold">(</span>f<span class="ansi-yellow-intense-fg ansi-bold">,</span> dialect<span class="ansi-yellow-intense-fg ansi-bold">=</span>my_dialect<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: &#34;quotechar&#34; must be a 1-character string</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># 1. 将数据整理为需要的形式。首先将文件读取为行的列表</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;ex7.csv&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">lines</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">))</span>
+    
+<span class="c1"># 2. 将数据拆分为列名行的数据行</span>
+<span class="n">header</span><span class="p">,</span> <span class="n">values</span> <span class="o">=</span> <span class="n">lines</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lines</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+<span class="c1"># 3. 使用字典推导式个表达式zip(*value)生产一个包含数据列的字典，字典中行转置成列：</span>
+<span class="n">data_dict</span> <span class="o">=</span> <span class="p">{</span><span class="n">h</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">h</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">values</span><span class="p">))}</span>
+<span class="n">data_dict</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[53]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;a&#39;: (&#39;1&#39;, &#39;1&#39;), &#39;b&#39;: (&#39;2&#39;, &#39;2&#39;), &#39;c&#39;: (&#39;3&#39;, &#39;3&#39;)}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># ？</span>
+<span class="k">class</span> <span class="nc">mu_dialect</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">Dialect</span><span class="p">):</span>
+    <span class="n">lineterminator</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="n">delimiter</span> <span class="o">=</span> <span class="s1">&#39;;&#39;</span>
+    <span class="n">quotechar</span> <span class="o">=</span> <span class="s1">&#39;&quot;&#39;</span>
+    <span class="n">quoting</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">QUOTE_MINIMAL</span>
+
+<span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">dialect</span><span class="o">=</span><span class="n">my_dialect</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-55-81f3d1245b28&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-fg">      5</span>     quoting <span class="ansi-yellow-intense-fg ansi-bold">=</span> csv<span class="ansi-yellow-intense-fg ansi-bold">.</span>QUOTE_MINIMAL
+<span class="ansi-green-fg">      6</span> 
+<span class="ansi-green-intense-fg ansi-bold">----&gt; 7</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>reader <span class="ansi-yellow-intense-fg ansi-bold">=</span> csv<span class="ansi-yellow-intense-fg ansi-bold">.</span>reader<span class="ansi-yellow-intense-fg ansi-bold">(</span>f<span class="ansi-yellow-intense-fg ansi-bold">,</span> dialect<span class="ansi-yellow-intense-fg ansi-bold">=</span>my_dialect<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">TypeError</span>: argument 1 must be an iterator</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>对于具有复杂或固定的多字符分隔符的文件，使用csv格式模块很费力。<br>
+在次情况下，可以使用</p>
+<ul>
+<li><ol>
+<li>字符串split方法</li>
+</ol>
+</li>
+<li><ol>
+<li>正则表达式re.split进行行拆分和其他清理工作</li>
+</ol>
+</li>
+</ul>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.1.4-JSON&#25968;&#25454;">6.1.4 JSON&#25968;&#25454;<a class="anchor-link" href="#6.1.4-JSON&#25968;&#25454;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.1.5-XML&#21644;HTML&#65306;&#32593;&#32476;&#29228;&#21462;">6.1.5 XML&#21644;HTML&#65306;&#32593;&#32476;&#29228;&#21462;<a class="anchor-link" href="#6.1.5-XML&#21644;HTML&#65306;&#32593;&#32476;&#29228;&#21462;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="6.2-&#20108;&#36827;&#21046;&#26684;&#24335;">6.2 &#20108;&#36827;&#21046;&#26684;&#24335;<a class="anchor-link" href="#6.2-&#20108;&#36827;&#21046;&#26684;&#24335;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.2.1-&#20351;&#29992;HDF5&#26684;&#24335;">6.2.1 &#20351;&#29992;HDF5&#26684;&#24335;<a class="anchor-link" href="#6.2.1-&#20351;&#29992;HDF5&#26684;&#24335;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>HDF5是一个文件格式，用于存储大量的科学数组数据。每个HDF5文件可以存储多个数据集并制止元数据。<br>
+HDF5支持多种压缩模式的即时压缩，使得重复模式的数据可以高效的存储。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>HDFStore类像字典一样工作并处理低级别细节：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">frame</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;a&#39;</span> <span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)})</span>
+<span class="n">store</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">HDFStore</span><span class="p">(</span><span class="s1">&#39;mydata.h5&#39;</span><span class="p">)</span>
+<span class="n">store</span><span class="p">[</span><span class="s1">&#39;obj1&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span>
+<span class="n">store</span><span class="p">[</span><span class="s1">&#39;obj1_col&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">frame</span><span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">]</span>
+<span class="n">store</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[61]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;class &#39;pandas.io.pytables.HDFStore&#39;&gt;
+File path: mydata.h5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">store</span><span class="p">[</span><span class="s1">&#39;obj1&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[63]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.192036</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-0.588560</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.220800</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>-0.661668</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.926718</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-0.892413</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.799513</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>2.152800</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>-1.410332</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0.534777</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0.563702</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>-0.335448</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>-0.230550</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>-1.350493</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>-1.596391</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>1.347432</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>0.595582</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>-0.328864</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>0.303836</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>-1.036432</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>1.464891</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>-0.962634</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>-1.121452</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>-0.307816</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>-0.118020</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>0.790477</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>1.705522</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>-0.086744</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>-1.844051</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>1.324825</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>70</th>
+      <td>1.264628</td>
+    </tr>
+    <tr>
+      <th>71</th>
+      <td>0.432937</td>
+    </tr>
+    <tr>
+      <th>72</th>
+      <td>0.733814</td>
+    </tr>
+    <tr>
+      <th>73</th>
+      <td>0.422012</td>
+    </tr>
+    <tr>
+      <th>74</th>
+      <td>-0.693822</td>
+    </tr>
+    <tr>
+      <th>75</th>
+      <td>1.404068</td>
+    </tr>
+    <tr>
+      <th>76</th>
+      <td>-2.077902</td>
+    </tr>
+    <tr>
+      <th>77</th>
+      <td>0.598624</td>
+    </tr>
+    <tr>
+      <th>78</th>
+      <td>-0.137697</td>
+    </tr>
+    <tr>
+      <th>79</th>
+      <td>-0.423497</td>
+    </tr>
+    <tr>
+      <th>80</th>
+      <td>-2.036296</td>
+    </tr>
+    <tr>
+      <th>81</th>
+      <td>-0.343510</td>
+    </tr>
+    <tr>
+      <th>82</th>
+      <td>0.214720</td>
+    </tr>
+    <tr>
+      <th>83</th>
+      <td>-1.232152</td>
+    </tr>
+    <tr>
+      <th>84</th>
+      <td>0.508409</td>
+    </tr>
+    <tr>
+      <th>85</th>
+      <td>0.464711</td>
+    </tr>
+    <tr>
+      <th>86</th>
+      <td>0.700276</td>
+    </tr>
+    <tr>
+      <th>87</th>
+      <td>-2.898282</td>
+    </tr>
+    <tr>
+      <th>88</th>
+      <td>-0.325995</td>
+    </tr>
+    <tr>
+      <th>89</th>
+      <td>1.490343</td>
+    </tr>
+    <tr>
+      <th>90</th>
+      <td>-0.712471</td>
+    </tr>
+    <tr>
+      <th>91</th>
+      <td>-1.040333</td>
+    </tr>
+    <tr>
+      <th>92</th>
+      <td>-0.503130</td>
+    </tr>
+    <tr>
+      <th>93</th>
+      <td>-0.301656</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>1.455963</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>0.252532</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>-1.405677</td>
+    </tr>
+    <tr>
+      <th>97</th>
+      <td>0.686908</td>
+    </tr>
+    <tr>
+      <th>98</th>
+      <td>0.620780</td>
+    </tr>
+    <tr>
+      <th>99</th>
+      <td>-0.460675</td>
+    </tr>
+  </tbody>
+</table>
+<p>100 rows × 1 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">store</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;obj2&#39;</span><span class="p">,</span> <span class="n">frame</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;table&#39;</span><span class="p">)</span>
+<span class="n">store</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;obj2&#39;</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;index &gt;= 10 and index &lt;= 15&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[65]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>10</th>
+      <td>0.563702</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>-0.335448</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>-0.230550</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>-1.350493</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>-1.596391</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>1.347432</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>put是<code>store['obj2']=frame</code>方法的显示版本，单允许我们设置其他选项，如存储格式。</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
