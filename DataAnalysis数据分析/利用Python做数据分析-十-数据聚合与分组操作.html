@@ -13166,7 +13166,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -13180,7 +13180,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
@@ -13200,7 +13200,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[2]:</div>
 
 
 
@@ -13234,40 +13234,1289 @@ div#notebook {
       <th>0</th>
       <td>a</td>
       <td>one</td>
-      <td>-0.987449</td>
-      <td>0.911580</td>
+      <td>1.894589</td>
+      <td>1.595903</td>
     </tr>
     <tr>
       <th>1</th>
       <td>b</td>
       <td>two</td>
-      <td>0.001460</td>
-      <td>-0.029648</td>
+      <td>-1.361358</td>
+      <td>1.145307</td>
     </tr>
     <tr>
       <th>2</th>
       <td>c</td>
       <td>one</td>
-      <td>1.247536</td>
-      <td>1.750293</td>
+      <td>-0.287313</td>
+      <td>-0.649782</td>
     </tr>
     <tr>
       <th>3</th>
       <td>d</td>
       <td>two</td>
-      <td>-0.053339</td>
-      <td>0.719934</td>
+      <td>0.529389</td>
+      <td>-0.342106</td>
     </tr>
     <tr>
       <th>4</th>
       <td>a</td>
       <td>one</td>
-      <td>-1.189336</td>
-      <td>0.711130</td>
+      <td>0.318322</td>
+      <td>-1.224931</td>
     </tr>
   </tbody>
 </table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>如果想要根据<code>key1</code>标签计算<code>data1</code>列的均值，有多种方法可以实现。<br>
+如访问<code>data1</code>并使用<code>key1</code>列调用<code>groupby</code>方法。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">group</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">])</span>
+<span class="c1">#提取data1列的数据与key1列的匹配索引</span>
+<span class="n">group</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[3]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;pandas.core.groupby.groupby.SeriesGroupBy object at 0x00000177FB750CF8&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">group</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>key1
+a    1.106455
+b   -1.361358
+c   -0.287313
+d    0.529389
+Name: data1, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>数据(一个Series)根据分组键进行聚合，产生一个新的<code>Series</code>,这个<code>Series</code>使用<code>key1</code>列的唯一值<br>
+作为索引。由于DataFrame的列<code>df['key1']</code>，结果中的索引名称是<code>key1</code>。</p>
+</blockquote>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">means</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">means</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>key1  key2
+a     one     1.106455
+b     two    -1.361358
+c     one    -0.287313
+d     two     0.529389
+Name: data1, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">means</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;key2&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;key1&#39;</span><span class="p">]])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">means</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[6]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>key2  key1
+one   a       1.106455
+      c      -0.287313
+two   b      -1.361358
+      d       0.529389
+Name: data1, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="10.1.1-&#36941;&#21382;&#21508;&#20998;&#32452;">10.1.1 &#36941;&#21382;&#21508;&#20998;&#32452;<a class="anchor-link" href="#10.1.1-&#36941;&#21382;&#21508;&#20998;&#32452;">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>GroupBy</code>对象支持迭代，会生成一个包含数组名和数据块的2维元组序列</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">name</span><span class="p">,</span><span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>a
+  key1 key2     data1     data2
+0    a  one  1.894589  1.595903
+4    a  one  0.318322 -1.224931
+b
+  key1 key2     data1     data2
+1    b  two -1.361358  1.145307
+c
+  key1 key2     data1     data2
+2    c  one -0.287313 -0.649782
+d
+  key1 key2     data1     data2
+3    d  two  0.529389 -0.342106
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">name</span><span class="p">,</span><span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key2&#39;</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>one
+  key1 key2     data1     data2
+0    a  one  1.894589  1.595903
+2    c  one -0.287313 -0.649782
+4    a  one  0.318322 -1.224931
+two
+  key1 key2     data1     data2
+1    b  two -1.361358  1.145307
+3    d  two  0.529389 -0.342106
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>在多个分组键的情况下，元组中的第一个元素是剑指的元组：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="p">(</span><span class="n">k1</span><span class="p">,</span><span class="n">k2</span><span class="p">),</span> <span class="n">group</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;key1&#39;</span><span class="p">,</span><span class="s1">&#39;key2&#39;</span><span class="p">]):</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">k1</span><span class="p">,</span><span class="n">k2</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">group</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(&#39;a&#39;, &#39;one&#39;)
+  key1 key2     data1     data2
+0    a  one  1.894589  1.595903
+4    a  one  0.318322 -1.224931
+(&#39;b&#39;, &#39;two&#39;)
+  key1 key2     data1     data2
+1    b  two -1.361358  1.145307
+(&#39;c&#39;, &#39;one&#39;)
+  key1 key2     data1     data2
+2    c  one -0.287313 -0.649782
+(&#39;d&#39;, &#39;two&#39;)
+  key1 key2     data1     data2
+3    d  two  0.529389 -0.342106
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="10.1.2-&#36873;&#25321;&#19968;&#21015;&#25110;&#25152;&#26377;&#21015;&#30340;&#23376;&#38598;">10.1.2 &#36873;&#25321;&#19968;&#21015;&#25110;&#25152;&#26377;&#21015;&#30340;&#23376;&#38598;<a class="anchor-link" href="#10.1.2-&#36873;&#25321;&#19968;&#21015;&#25110;&#25152;&#26377;&#21015;&#30340;&#23376;&#38598;">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;key2&#39;</span><span class="p">:[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;data1&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+                  <span class="s1">&#39;data2&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)})</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>data1</th>
+      <th>data2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>one</td>
+      <td>0.303321</td>
+      <td>-0.228902</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>two</td>
+      <td>-1.133159</td>
+      <td>0.782795</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>c</td>
+      <td>one</td>
+      <td>1.164799</td>
+      <td>0.765230</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>d</td>
+      <td>two</td>
+      <td>-0.738564</td>
+      <td>0.068806</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>a</td>
+      <td>one</td>
+      <td>0.340623</td>
+      <td>-0.174533</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>将从<code>DataFrame</code>创建的<code>GroupBy</code>对象用列名称或列名称数组进行索引是，<br>
+会产生用于聚合的列子集的效果。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>key1
+a    0.321972
+b   -1.133159
+c    1.164799
+d   -0.738564
+Name: data1, dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="10.1.3-&#20351;&#29992;&#23383;&#20856;&#21644;Series&#20998;&#32452;">10.1.3 &#20351;&#29992;&#23383;&#20856;&#21644;Series&#20998;&#32452;<a class="anchor-link" href="#10.1.3-&#20351;&#29992;&#23383;&#20856;&#21644;Series&#20998;&#32452;">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">people</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+                     <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">],</span>
+                     <span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Joe&#39;</span><span class="p">,</span><span class="s1">&#39;Steve&#39;</span><span class="p">,</span><span class="s1">&#39;Wes&#39;</span><span class="p">,</span><span class="s1">&#39;Jim&#39;</span><span class="p">,</span><span class="s1">&#39;Travis&#39;</span><span class="p">])</span>
+<span class="n">people</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[14]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Joe</th>
+      <td>-1.768781</td>
+      <td>0.405067</td>
+      <td>0.614709</td>
+      <td>-0.172266</td>
+      <td>1.496963</td>
+    </tr>
+    <tr>
+      <th>Steve</th>
+      <td>-0.343339</td>
+      <td>-0.516434</td>
+      <td>1.637776</td>
+      <td>-0.672090</td>
+      <td>0.816367</td>
+    </tr>
+    <tr>
+      <th>Wes</th>
+      <td>-0.400017</td>
+      <td>0.473537</td>
+      <td>-1.120807</td>
+      <td>0.047851</td>
+      <td>-0.423574</td>
+    </tr>
+    <tr>
+      <th>Jim</th>
+      <td>0.187387</td>
+      <td>0.063310</td>
+      <td>-0.419960</td>
+      <td>0.775477</td>
+      <td>1.284817</td>
+    </tr>
+    <tr>
+      <th>Travis</th>
+      <td>0.790127</td>
+      <td>0.069769</td>
+      <td>1.148265</td>
+      <td>1.040806</td>
+      <td>-0.338334</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">people</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">,[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="c1">#切片，将index = Wes; columns = b ,c 设置为无效数据</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">people</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[19]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Joe</th>
+      <td>-1.768781</td>
+      <td>0.405067</td>
+      <td>0.614709</td>
+      <td>-0.172266</td>
+      <td>1.496963</td>
+    </tr>
+    <tr>
+      <th>Steve</th>
+      <td>-0.343339</td>
+      <td>-0.516434</td>
+      <td>1.637776</td>
+      <td>-0.672090</td>
+      <td>0.816367</td>
+    </tr>
+    <tr>
+      <th>Wes</th>
+      <td>-0.400017</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.047851</td>
+      <td>-0.423574</td>
+    </tr>
+    <tr>
+      <th>Jim</th>
+      <td>0.187387</td>
+      <td>0.063310</td>
+      <td>-0.419960</td>
+      <td>0.775477</td>
+      <td>1.284817</td>
+    </tr>
+    <tr>
+      <th>Travis</th>
+      <td>0.790127</td>
+      <td>0.069769</td>
+      <td>1.148265</td>
+      <td>1.040806</td>
+      <td>-0.338334</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>假设拥有各列的分组对应关系，并想包各列按组累加:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mapping</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span>
+          <span class="s1">&#39;d&#39;</span><span class="p">:</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;e&#39;</span><span class="p">:</span><span class="s1">&#39;red&#39;</span><span class="p">,</span><span class="s1">&#39;f&#39;</span><span class="p">:</span><span class="s1">&#39;orange&#39;</span><span class="p">}</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">by_column</span> <span class="o">=</span> <span class="n">people</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">mapping</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">by_column</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[26]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>blue</th>
+      <th>red</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Joe</th>
+      <td>0.442443</td>
+      <td>0.133249</td>
+    </tr>
+    <tr>
+      <th>Steve</th>
+      <td>0.965686</td>
+      <td>-0.043406</td>
+    </tr>
+    <tr>
+      <th>Wes</th>
+      <td>0.047851</td>
+      <td>-0.823591</td>
+    </tr>
+    <tr>
+      <th>Jim</th>
+      <td>0.355516</td>
+      <td>1.535514</td>
+    </tr>
+    <tr>
+      <th>Travis</th>
+      <td>2.189071</td>
+      <td>0.521563</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Series具有相同的功能，可以视为固定大小的映射：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">map_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">mapping</span><span class="p">)</span>
+<span class="n">map_series</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[28]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>a       red
+b       red
+c      blue
+d      blue
+e       red
+f    orange
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">people</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">map_series</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[29]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>blue</th>
+      <th>red</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Joe</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Steve</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Wes</th>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>Jim</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>Travis</th>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h4 id="10.1.4-&#20351;&#29992;&#20989;&#25968;&#20998;&#32452;">10.1.4 &#20351;&#29992;&#20989;&#25968;&#20998;&#32452;<a class="anchor-link" href="#10.1.4-&#20351;&#29992;&#20989;&#25968;&#20998;&#32452;">&#182;</a></h4>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>使用字典或Series分组相比，使用Python函数是定义分组关系的一种更为通用的方式。<br>
+作为分组键传递的函数将会按照每个索引值调用一次，同时返回值会被用作分组名称。</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#?</span>
+<span class="n">people</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[32]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>a</th>
+      <th>b</th>
+      <th>c</th>
+      <th>d</th>
+      <th>e</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>-1.981411</td>
+      <td>0.468377</td>
+      <td>0.194748</td>
+      <td>0.651061</td>
+      <td>2.358206</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>-0.343339</td>
+      <td>-0.516434</td>
+      <td>1.637776</td>
+      <td>-0.672090</td>
+      <td>0.816367</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>0.790127</td>
+      <td>0.069769</td>
+      <td>1.148265</td>
+      <td>1.040806</td>
+      <td>-0.338334</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="10.2-&#25968;&#25454;&#32858;&#21512;">10.2 &#25968;&#25454;&#32858;&#21512;<a class="anchor-link" href="#10.2-&#25968;&#25454;&#32858;&#21512;">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>优化的<code>groupby</code>方法：</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<table>
+<thead><tr>
+<th>函数名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count</td>
+<td>分组中的非NA值的数量</td>
+</tr>
+<tr>
+<td>sum</td>
+<td>非NA值的累和</td>
+</tr>
+<tr>
+<td>mean</td>
+<td>非NA值的均值</td>
+</tr>
+<tr>
+<td>median</td>
+<td>非NA值的算术中位数</td>
+</tr>
+<tr>
+<td>std、var</td>
+<td>无偏的（n-1分母）标准差和方差</td>
+</tr>
+<tr>
+<td>min、max</td>
+<td>非NA值的最小值，最大值</td>
+</tr>
+<tr>
+<td>prod</td>
+<td>非NA值的乘积</td>
+</tr>
+<tr>
+<td>first、last</td>
+<td>非NA值的第一个和最后一个值</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;key1&#39;</span><span class="p">:[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="s1">&#39;c&#39;</span><span class="p">,</span><span class="s1">&#39;d&#39;</span><span class="p">,</span><span class="s1">&#39;a&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;key2&#39;</span><span class="p">:[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">,</span><span class="s1">&#39;two&#39;</span><span class="p">,</span><span class="s1">&#39;one&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;data1&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+                  <span class="s1">&#39;data2&#39;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)})</span>
+<span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>key1</th>
+      <th>key2</th>
+      <th>data1</th>
+      <th>data2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+      <td>one</td>
+      <td>1.625723</td>
+      <td>0.346808</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+      <td>two</td>
+      <td>-0.261503</td>
+      <td>-0.191866</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>c</td>
+      <td>one</td>
+      <td>0.069228</td>
+      <td>-1.127719</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>d</td>
+      <td>two</td>
+      <td>-2.176041</td>
+      <td>0.249866</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>a</td>
+      <td>one</td>
+      <td>-0.623845</td>
+      <td>-0.235785</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">grouped</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;key1&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#quantile 分位函数</span>
+<span class="n">grouped</span><span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.9</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[39]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>key1
+a    1.400766
+b   -0.261503
+c    0.069228
+d   -2.176041
+Name: data1, dtype: float64</pre>
 </div>
 
 </div>
